@@ -2,22 +2,39 @@
 
 class Solution:
     def longestSubstring(self, s):
-        ans=1
-        l=len(s)
+        # ans=1
+        ans = 1
+        l=len(s) 
+        # l=len(s)
         f={0:-1}
+        # f={0:-1}
         x=0
+        # x=0
         for i in range(l):
             z=ord(s[i])-97
-            x=x^(1<<z)
+            x= x^(1<<z)
             if x in f:
-                ans=max(ans,i-f[x])
+                ans = max(ans,i-f[x])
             for j in range(26):
                 t=x^(1<<j)
                 if t in f:
-                    ans=max(ans,i-f[t])
+                    ans = max(ans,i-f[t])
             if x not in f:
-                f[x]=i
+                f[x] = i
         return ans
+        # for i in range(l):
+        #     x= x^
+        #     z=ord(s[i])-97
+        #     x=x^(1<<z)
+        #     if x in f:
+        #         ans=max(ans,i-f[x])
+        #     for j in range(26):
+        #         t=x^(1<<j)
+        #         if t in f:
+        #             ans=max(ans,i-f[t])
+        #     if x not in f:
+        #         f[x]=i
+        # return ans
 
 #{ 
  # Driver Code Starts
